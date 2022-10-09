@@ -19,7 +19,7 @@ class CoinListViewModel @Inject constructor(private val coinRepository: CoinRepo
     ViewModel() {
 
     private val _coinListObserver = MutableStateFlow<UiEvent>(UiEvent.Empty)
-    val conListObserver: StateFlow<UiEvent> get() = _coinListObserver
+    val coinListObserver: StateFlow<UiEvent> get() = _coinListObserver
 
     fun getCoinList() {
         viewModelScope.launch {
