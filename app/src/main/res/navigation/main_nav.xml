@@ -9,5 +9,14 @@
         android:id="@+id/coinListFragment"
         android:name="iqro.mobile.cryptocurrencyapp.presenter.CoinListFragment"
         android:label="fragment_coin_list"
-        tools:layout="@layout/fragment_coin_list" />
+        tools:layout="@layout/fragment_coin_list" >
+        <action
+            android:id="@+id/action_coinListFragment_to_coinDetailFragment"
+            app:destination="@id/coinDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/coinDetailFragment"
+        android:name="iqro.mobile.cryptocurrencyapp.presenter.CoinDetailFragment"
+        tools:layout="@layout/coin_detail_layout"
+        android:label="CoinDetailFragment" />
 </navigation>

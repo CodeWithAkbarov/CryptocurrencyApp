@@ -1,6 +1,7 @@
 package iqro.mobile.cryptocurrencyapp.domain
 
 import iqro.mobile.cryptocurrencyapp.common.Resource
+import iqro.mobile.cryptocurrencyapp.data.dto.CoinDetailModel
 import iqro.mobile.cryptocurrencyapp.data.dto.CoinModel
 
 /**
@@ -8,6 +9,8 @@ import iqro.mobile.cryptocurrencyapp.data.dto.CoinModel
  */
 interface CoinRepository {
 
-    suspend fun getCoinList():Resource<List<CoinModel>>
+    suspend fun getCoinList(): Resource<List<CoinModel>>
+
+    suspend fun getCoinDetail(coinId: String): Resource<CoinDetailModel>
 
 }

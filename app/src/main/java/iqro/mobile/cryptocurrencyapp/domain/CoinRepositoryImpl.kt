@@ -2,6 +2,7 @@ package iqro.mobile.cryptocurrencyapp.domain
 
 import iqro.mobile.cryptocurrencyapp.common.Resource
 import iqro.mobile.cryptocurrencyapp.data.CoinPaprikaApi
+import iqro.mobile.cryptocurrencyapp.data.dto.CoinDetailModel
 import iqro.mobile.cryptocurrencyapp.data.dto.CoinModel
 import javax.inject.Inject
 
@@ -12,6 +13,19 @@ class CoinRepositoryImpl @Inject constructor(val api: CoinPaprikaApi) : CoinRepo
     override suspend fun getCoinList(): Resource<List<CoinModel>> {
         return try {
             val result = api.getCoinList()
+            if (result.isSuccessful && result.body() != null) {
+                Resource.Success(result.body())
+            } else {
+                Resource.Error(message = result.message())
+            }
+        } catch (e: Exception) {
+            Resource.Error(message = e.message)
+        }
+    }
+
+    override suspend fun getCoinDetail(coinId: String): Resource<CoinDetailModel> {
+        return try {
+            val result = api.getCoinDetail(coinId)
             if (result.isSuccessful && result.body() != null) {
                 Resource.Success(result.body())
             } else {
