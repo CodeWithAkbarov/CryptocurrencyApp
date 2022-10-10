@@ -53,7 +53,7 @@ data class CoinDetailModel(
     @SerializedName("symbol")
     val symbol: String,
     @SerializedName("tags")
-    val tags: List<Tag>,
+    val tags: List<Tag>?,
     @SerializedName("team")
     val team: List<Team>,
     @SerializedName("type")
